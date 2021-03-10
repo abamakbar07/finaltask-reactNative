@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from './src/pages/Home/index'
 import Details from './src/pages/BookDetail/index'
 import Post from './src/pages/Post/index'
+import Landingpage from './src/pages/LandingPage/index'
 
 const Stack = createStackNavigator();
 
@@ -14,19 +15,21 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
+          name="Landingpage"
+          component={Landingpage}
+          // options={{ title: "Overview" }}
+        />
+        <Stack.Screen
           name="Home"
           component={Home}
-          options={{ title: "Overview" }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Details"
           component={Details}
-          initialParams={{ initParam: "Joss"}}
-         />
-         <Stack.Screen 
-          name="Post"
-          component={Post}
-         />
+          initialParams={{ initParam: "Joss" }}
+        />
+        <Stack.Screen name="Post" component={Post} />
       </Stack.Navigator>
     </NavigationContainer>
   );
